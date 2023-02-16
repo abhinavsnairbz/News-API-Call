@@ -35,7 +35,10 @@ class NewsTile extends StatelessWidget {
                 child: const Center(
                   child: Text(
                     AppString.text,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.white,
+                    ),
                   ),
                 ),
               ),
