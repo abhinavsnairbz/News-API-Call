@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/string.dart';
 import '../controllers/home_controller.dart';
@@ -22,7 +22,7 @@ class NewsTile extends StatelessWidget {
       },
       itemCount: homeController.newsList.length,
       itemBuilder: ((context, index) {
-        return Container(
+        return  Container(
           padding: const EdgeInsets.all(12),
           child: Row(
             children: [
@@ -32,8 +32,8 @@ class NewsTile extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: AppColor.bluegrey),
-                child: const Center(
-                  child: Text(
+                child:  const Center(
+                  child:  Text(
                     AppString.text,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class NewsTile extends StatelessWidget {
                 width: 10,
               ),
               Expanded(
-                child: Column(
+                child:Obx(() =>  Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -64,7 +64,7 @@ class NewsTile extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
-                ),
+                ),)
               ),
             ],
           ),

@@ -15,9 +15,9 @@ class HomeView extends GetView<HomeController> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: Obx(
-            () => NewsTile(homeController: homeController),
-          ),
+          child: 
+             NewsTile(homeController: homeController),
+          
         ),
       ),
     );
