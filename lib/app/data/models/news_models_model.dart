@@ -1,5 +1,3 @@
-import 'package:newsapi/app/data/models/providers/news_models_provider.dart';
-
 class NewsModelResponse {
   List<NewsModels>? news;
   NewsModelResponse({this.news});

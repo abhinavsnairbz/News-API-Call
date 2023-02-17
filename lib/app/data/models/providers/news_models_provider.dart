@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
-
 import '../news_models_model.dart';
 
 class NewsModelsProvider extends GetConnect {
@@ -11,8 +8,7 @@ class NewsModelsProvider extends GetConnect {
     var response = await get('https://jsonplaceholder.typicode.com/posts');
 
     if (response.statusCode == 200) {
-      final newsResponse =
-          NewsModelResponse.fromJson(response.body);
+      final newsResponse = NewsModelResponse.fromJson(response.body);
       return newsResponse.news;
     } else {
       return null;
