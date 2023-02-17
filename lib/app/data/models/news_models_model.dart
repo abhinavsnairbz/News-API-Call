@@ -1,3 +1,18 @@
+import 'package:newsapi/app/data/models/providers/news_models_provider.dart';
+
+class NewsModelResponse {
+  List<NewsModels>? news;
+  NewsModelResponse({this.news});
+  NewsModelResponse.fromJson(List<dynamic>? json) {
+    if (json != null) {
+      news = [];
+      json.forEach((element) {
+        news?.add(NewsModels.fromJson(element));
+      });
+    }
+  }
+}
+
 class NewsModels {
   int? userId;
   int? id;

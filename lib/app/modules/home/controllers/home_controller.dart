@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
+import 'package:newsapi/app/data/models/news_models_model.dart';
+import 'package:newsapi/app/data/models/providers/news_models_provider.dart';
 
 class HomeController extends GetxController {
-  var newsList = <dynamic>[].obs;
+  var newsList = <NewsModels>[].obs;
   @override
   void onInit() {
     fetchNews();
@@ -11,12 +13,13 @@ class HomeController extends GetxController {
   }
 
   void fetchNews() async {
-    var response =
-        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
-
-    if (response.statusCode == 200) {
-      newsList.assignAll(json.decode(response.body));
-    }
+    NewsModelsProvider().fetchNews().then((value) {
+      if (value != null) {
+        newsList.value = value;
+      }
+    }, onError: (error) {
+      print(error);
+    });
   }
 
   @override
